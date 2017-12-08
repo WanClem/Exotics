@@ -1,8 +1,4 @@
-package com.wan.exotics.ui.activities;
-
-import android.location.Location;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+package com.wan.exotics.ui.fragments;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -12,33 +8,29 @@ import org.greenrobot.eventbus.ThreadMode;
  * @author Wan Clem
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public class BaseFragment extends android.support.v4.app.Fragment{
 
-    @NonNull
-    public BaseActivity getCurrentActivityInstance() {
-        return BaseActivity.this;
-    }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         checkAndRegEventBus();
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         checkAndRegEventBus();
     }
 
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         checkAndUnRegEventBus();
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         checkAndUnRegEventBus();
     }
@@ -60,9 +52,4 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onEventAsync(final Object o) {
 
     }
-
-    public void processLocation(Location location) {
-
-    }
-
 }
