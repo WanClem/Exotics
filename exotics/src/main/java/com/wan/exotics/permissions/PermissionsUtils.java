@@ -2,7 +2,6 @@ package com.wan.exotics.permissions;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -179,13 +178,13 @@ public class PermissionsUtils {
                 != PackageManager.PERMISSION_GRANTED);
     }
 
-    public static boolean isAudioAccessPermissionNeededd(Activity activity) {
+    public static boolean isAudioAccessPermissionNeeded(Activity activity) {
         setCurrentActivityContext(activity);
         return BuildUtils.hasMarshmallow() && (ActivityCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED);
     }
 
-    public static boolean callPermissionIsNeeded(Activity activity) {
+    public static boolean isCallPermissionNeeded(Activity activity) {
         setCurrentActivityContext(activity);
         return BuildUtils.hasMarshmallow() && (ActivityCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE)
                 != PackageManager.PERMISSION_GRANTED);
@@ -205,22 +204,6 @@ public class PermissionsUtils {
 
     public static void requestPermissions(Activity activity, String[] permissions, int requestCode) {
         ActivityCompat.requestPermissions(activity, permissions, requestCode);
-    }
-
-    public static boolean isAudioRecordingPermissionGranted(Context context) {
-        String permission = "android.permission.RECORD_AUDIO";
-        int res = context.checkCallingOrSelfPermission(permission);
-        return (res == PackageManager.PERMISSION_GRANTED);
-    }
-
-    public static boolean isCameraPermissionGranted(Context context) {
-        int res = context.checkCallingOrSelfPermission(Manifest.permission.CAMERA);
-        return (res == PackageManager.PERMISSION_GRANTED);
-    }
-
-    public static boolean isCallPermissionGranted(Context context) {
-        int res = context.checkCallingOrSelfPermission(Manifest.permission.CALL_PHONE);
-        return (res == PackageManager.PERMISSION_GRANTED);
     }
 
     private static Snackbar snackbar;
