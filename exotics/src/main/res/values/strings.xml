@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">exotics</string>
+    <string name="internal_storage" />
 </resources>
