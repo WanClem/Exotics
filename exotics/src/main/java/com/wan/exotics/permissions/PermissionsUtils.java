@@ -19,23 +19,23 @@ public class PermissionsUtils {
 
     private static Capture<Activity> contextCapture = new Capture<>();
 
-    public static final int REQUEST_STORAGE = 0;
-    public static final int REQUEST_LOCATION = 1;
-    public static final int REQUEST_AUDIO_RECORD = 3;
-    public static final int REQUEST_CALL_PHONE = 4;
-    public static final int REQUEST_CAMERA = 5;
-    public static final int REQUEST_CONTACT = 6;
-    public static final int REQUEST_SMS = 7;
+    private static final int REQUEST_STORAGE = 0;
+    private static final int REQUEST_LOCATION = 1;
+    private static final int REQUEST_AUDIO_RECORD = 3;
+    private static final int REQUEST_CALL_PHONE = 4;
+    private static final int REQUEST_CAMERA = 5;
+    private static final int REQUEST_CONTACT = 6;
+    private static final int REQUEST_SMS = 7;
 
-    public static String[] PERMISSIONS_LOCATION = {Manifest.permission.ACCESS_FINE_LOCATION};
-    public static String[] PERMISSION_CALL = {Manifest.permission.CALL_PHONE};
-    public static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+    private static String[] PERMISSIONS_LOCATION = {Manifest.permission.ACCESS_FINE_LOCATION};
+    private static String[] PERMISSION_CALL = {Manifest.permission.CALL_PHONE};
+    private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
 
-    public static String[] PERMISSIONS_RECORD_AUDIO = {Manifest.permission.RECORD_AUDIO};
-    public static String[] PERMISSION_CAMERA = {Manifest.permission.CAMERA};
-    public static String[] PERMISSION_CONTACT = {Manifest.permission.READ_CONTACTS};
+    private static String[] PERMISSIONS_RECORD_AUDIO = {Manifest.permission.RECORD_AUDIO};
+    private static String[] PERMISSION_CAMERA = {Manifest.permission.CAMERA};
+    private static String[] PERMISSION_CONTACT = {Manifest.permission.READ_CONTACTS};
 
-    public static String[] PERMISSION_SMS = {Manifest.permission.READ_SMS, Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE};
+    private static String[] PERMISSION_SMS = {Manifest.permission.READ_SMS, Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE};
 
     public static boolean verifyPermissions(int[] grantResults) {
         if (grantResults.length < 1) {
@@ -61,7 +61,7 @@ public class PermissionsUtils {
                 Manifest.permission.ACCESS_COARSE_LOCATION));
     }
 
-    public void requestLocationPermissions(String rationalMessage) {
+    public static void requestLocationPermissions(String rationalMessage) {
         if (shouldRequestForLocationPermissions(contextCapture.get())) {
             showSnackBar(rationalMessage, PERMISSIONS_LOCATION, REQUEST_LOCATION);
         } else {
@@ -75,7 +75,7 @@ public class PermissionsUtils {
                 Manifest.permission.RECORD_AUDIO));
     }
 
-    public void requestAudioPermissions(String rationalMessage) {
+    public static void requestAudioPermissions(String rationalMessage) {
         if (shouldRequestForAudioPermissions(contextCapture.get())) {
             showSnackBar(rationalMessage, PERMISSIONS_LOCATION, REQUEST_AUDIO_RECORD);
         } else {
@@ -91,7 +91,7 @@ public class PermissionsUtils {
                 Manifest.permission.READ_EXTERNAL_STORAGE));
     }
 
-    public void requestStoragePermissions(String rationalMessage) {
+    public static void requestStoragePermissions(String rationalMessage) {
         if (shouldRequestForStoragePermissions(contextCapture.get())) {
             showSnackBar(rationalMessage, PERMISSIONS_STORAGE, REQUEST_STORAGE);
         } else {
@@ -99,7 +99,7 @@ public class PermissionsUtils {
         }
     }
 
-    public void requestCallPermissions(String rationalMessage) {
+    public static void requestCallPermissions(String rationalMessage) {
         if (shouldRequestForCallPermissions(contextCapture.get())) {
             showSnackBar(rationalMessage, PERMISSION_CALL, REQUEST_CALL_PHONE);
         } else {
@@ -119,7 +119,7 @@ public class PermissionsUtils {
                 Manifest.permission.CAMERA));
     }
 
-    public void requestCameraPermissions(String rationalMessage) {
+    public static void requestCameraPermissions(String rationalMessage) {
         if (shouldRequestForCameraPermissions(contextCapture.get())) {
             showSnackBar(rationalMessage, PERMISSION_CAMERA, REQUEST_CAMERA);
         } else {
@@ -133,7 +133,7 @@ public class PermissionsUtils {
                 Manifest.permission.READ_CONTACTS));
     }
 
-    public void requestContactPermissions(String rationalMessage) {
+    public static void requestContactPermissions(String rationalMessage) {
         if (shouldRequestForContactPermissions(contextCapture.get())) {
             showSnackBar(rationalMessage, PERMISSION_CONTACT, REQUEST_CONTACT);
         } else {
@@ -149,7 +149,7 @@ public class PermissionsUtils {
                 || ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_PHONE_STATE));
     }
 
-    public void requestSmsAccessPermission(String rationalMessage) {
+    public static void requestSmsAccessPermission(String rationalMessage) {
         if (shouldRequestForSMSAccessPermissions(contextCapture.get())) {
             showSnackBar(rationalMessage, PERMISSION_SMS, REQUEST_SMS);
         } else {
@@ -157,7 +157,7 @@ public class PermissionsUtils {
         }
     }
 
-    public boolean isSMSAccessPermissionNeeded(Activity activity) {
+    public static boolean isSMSAccessPermissionNeeded(Activity activity) {
         setCurrentActivityContext(activity);
         return ((ActivityCompat.checkSelfPermission(contextCapture.get(), Manifest.permission.SEND_SMS)
                 != PackageManager.PERMISSION_GRANTED) && ((ActivityCompat.checkSelfPermission(contextCapture.get(), Manifest.permission.RECEIVE_SMS)
@@ -179,7 +179,7 @@ public class PermissionsUtils {
                 != PackageManager.PERMISSION_GRANTED);
     }
 
-    public static boolean isAudioAcessPermissionNeededd(Activity activity) {
+    public static boolean isAudioAccessPermissionNeededd(Activity activity) {
         setCurrentActivityContext(activity);
         return BuildUtils.hasMarshmallow() && (ActivityCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED);
@@ -191,13 +191,13 @@ public class PermissionsUtils {
                 != PackageManager.PERMISSION_GRANTED);
     }
 
-    public static boolean cameraAccessPermissionIsNeeded(Activity activity) {
+    public static boolean isCameraAccessPermissionNeeded(Activity activity) {
         setCurrentActivityContext(activity);
         return BuildUtils.hasMarshmallow() && (ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED);
     }
 
-    public static boolean contactAcessPermissionIsNeeded(Activity activity) {
+    public static boolean isContactAccessPermissionNeeded(Activity activity) {
         setCurrentActivityContext(activity);
         return BuildUtils.hasMarshmallow() && (ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_CONTACTS)
                 != PackageManager.PERMISSION_GRANTED);
@@ -223,9 +223,9 @@ public class PermissionsUtils {
         return (res == PackageManager.PERMISSION_GRANTED);
     }
 
-    private Snackbar snackbar;
+    private static Snackbar snackbar;
 
-    private void showSnackBar(String message, final String[] permissions, final int requestCode) {
+    private static void showSnackBar(String message, final String[] permissions, final int requestCode) {
         if (contextCapture.get() != null) {
             View rootView = contextCapture.get().getWindow().getDecorView().findViewById(android.R.id.content);
             if (rootView != null) {
