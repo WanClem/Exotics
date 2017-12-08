@@ -45,6 +45,7 @@ dependencies {
     compile 'joda-time:joda-time:2.9.9'
     compile 'net.alhazmy13.MediaPicker:libary:2.2.5'
     compile 'com.esotericsoftware:kryo:4.0.0'
+    compile 'com.google.code.gson:gson:2.8.2'
     compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
         transitive = true
     }
