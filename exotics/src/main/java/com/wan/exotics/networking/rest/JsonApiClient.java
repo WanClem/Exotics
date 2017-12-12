@@ -35,7 +35,7 @@ public class JsonApiClient {
         return networkInterceptionLogTag;
     }
 
-    private static OkHttpClient.Builder getOkHttpClientBuilder() {
+    public static OkHttpClient.Builder getOkHttpClientBuilder() {
         HttpLoggingInterceptor logging = new
                 HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
             @Override
@@ -49,7 +49,7 @@ public class JsonApiClient {
                 .addInterceptor(logging);
     }
 
-    private static Request.Builder getRequestBuilder(HashMap<String, String> headers) {
+    public static Request.Builder getRequestBuilder(HashMap<String, String> headers) {
         final Request.Builder requestBuilder = new Request.Builder();
         if (headers != null) {
             for (String key : headers.keySet()) {
@@ -59,11 +59,11 @@ public class JsonApiClient {
         return requestBuilder;
     }
 
-    private static OkHttpClient getOkHttpClient() {
+    public static OkHttpClient getOkHttpClient() {
         return getOkHttpClientBuilder().build();
     }
 
-    private static Exception spitException(String errorMessage) {
+    public static Exception spitException(String errorMessage) {
         return new Exception(errorMessage);
     }
 
@@ -71,11 +71,11 @@ public class JsonApiClient {
         ExoticsLogger.d(tag, responseBodyString + ", Response Code =" + code);
     }
 
-    private static int getResponseCode(@NonNull Response response) {
+    public static int getResponseCode(@NonNull Response response) {
         return response.code();
     }
 
-    private static String getResponseString(@NonNull Response response) throws IOException {
+    public static String getResponseString(@NonNull Response response) throws IOException {
         try {
             ResponseBody responseBody = response.body();
             if (responseBody != null) {
