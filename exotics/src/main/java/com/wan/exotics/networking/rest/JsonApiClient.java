@@ -87,7 +87,7 @@ public class JsonApiClient {
         }
     }
 
-    private static void callBackOnMainThread(final DoneCallback doneCallback, final Object object, final Exception e) {
+    public static void callBackOnMainThread(final DoneCallback doneCallback, final Object object, final Exception e) {
         ThreadUtils.runOnMain(new Runnable() {
             @Override
             public void run() {
