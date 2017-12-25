@@ -28,7 +28,9 @@ public class ExoticObject implements Serializable, Parcelable {
      * A no argument constructor is needed for Kryo serialization
      **/
     public ExoticObject() {
-
+        if (getObjectId() == null) {
+            throw new RuntimeException("This Object must be assigned an Id. Please use setObjectId(String objectId) to assign an id to this object");
+        }
     }
 
     protected ExoticObject(Parcel in) {
