@@ -45,11 +45,14 @@ You could do that in a single line of code
 ***/
 
 //Fetch all User Videos on the device
-List<MediaEntry>allUserVideos = MediaUtils.getSortedVideos(getContext);
+List<MediaEntry>allUserVideos = MediaUtils.getSortedVideos(getContext());
 
 //Fetch all user photos on the device
-List<MediaEntry>allUserPhotos = MediaUtils.getSortedPhotos(getContext);
+List<MediaEntry>allUserPhotos = MediaUtils.getSortedPhotos(getContext());
 
+//Fetch all of a user Music Files
+
+List<MediaEntry>allUserMusic = MediaUtils.getSortedMusicFiles(getContext());
 ```
 
 ## Authors
