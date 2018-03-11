@@ -52,6 +52,11 @@ List<MediaEntry>allUserPhotos = MediaUtils.getSortedPhotos(getContext());
 
 //Fetch all of a user Music Files
 List<MediaEntry>allUserMusic = MediaUtils.getSortedMusicFiles(getContext());
+
+//Checking and asking for permissions
+if(!PermissionUtils.isContactPermissionsGranted(activity)){
+    PermissionUtils.requestContactPermissions(activity);
+}
 ```
 
 ## Authors
