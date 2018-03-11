@@ -39,6 +39,16 @@ UiUtils.showSafeToast(getContext(),"Welcome to Exotics");
 //Toggles a View Visibility
 UiUtils.toggleViewVisibility(signInButton,true);
 
+
+//Say you are building an app to fetch all the user's photos and videos in a folder structure, You could do that in a single //line of code
+
+
+//Fetch all User Videos on the device
+List<MediaEntry>allUserVideos = MediaUtils.getSortedVideos(getContext);
+
+//Fetch all user photos on the device
+List<MediaEntry>allUserPhotos = MediaUtils.getSortedPhotos(getContext);
+
 ```
 
 ## Authors
