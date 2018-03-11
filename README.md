@@ -51,7 +51,6 @@ List<MediaEntry>allUserVideos = MediaUtils.getSortedVideos(getContext());
 List<MediaEntry>allUserPhotos = MediaUtils.getSortedPhotos(getContext());
 
 //Fetch all of a user Music Files
-
 List<MediaEntry>allUserMusic = MediaUtils.getSortedMusicFiles(getContext());
 ```
 
