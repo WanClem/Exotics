@@ -10,9 +10,9 @@ A Crashlytics Developer account for Crash Detection.
 
 ### Download
 
-Add the following dependencies to your project
+Add the following dependencies to your project level  `build.gradle`  file
 
-```
+```java
 allprojects {
 	repositories {
 	   maven { url 'https://jitpack.io' }
@@ -20,9 +20,9 @@ allprojects {
 }
 ```
 
-And add the below to your app's build.gradle file
+And add the below to your app's `build.gradle` file
 
-```
+```java
 dependencies {
      compile 'com.github.wanclem:exotics:1.1.3'
 }
@@ -30,7 +30,7 @@ dependencies {
 
 ## Sample Usage
 
-```
+```java
 //The following displays a toast in a single line of code without replication on the Main Thread.
 
 UiUtils.showSafeToast(getContext(),"Welcome to Exotics");
@@ -61,4 +61,4 @@ List<MediaEntry>allUserMusic = MediaUtils.getSortedMusicFiles(getContext());
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License
