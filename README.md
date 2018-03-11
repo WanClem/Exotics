@@ -4,8 +4,6 @@ An Android Development Toolbox containing readily used Android Functionalities
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
 ```
 A Crashlytics Developer account for Crash Detection.
 ```
