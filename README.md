@@ -48,12 +48,6 @@ UiUtils.toggleViewVisibility(signInButton,true);
 
 ```
 
-## Built With
-
-* [Firebase - The latest version of firebase sdk for android
-* [Crashlytics]- Crash reporting framework - Used to generate Crash reports
-
-
 ## Authors
 
 ** Wan Clem
