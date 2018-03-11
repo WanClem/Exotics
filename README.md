@@ -21,18 +21,19 @@ Add the following dependencies to your project
 
 ```
 allprojects {
-		repositories {
-			maven { url 'https://jitpack.io' }
-		}
+	repositories 
+	{
+	   maven { url 'https://jitpack.io' }
 	}
+}
 ```
 
 And add the below to your app's build.gradle file
 
 ```
 dependencies {
-	        compile 'com.github.wanclem:exotics:1.1.3'
-	}
+	     compile 'com.github.wanclem:exotics:1.1.3'
+}
 ```
 
 ## Sample Usage
@@ -55,7 +56,7 @@ UiUtils.toggleViewVisibility(signInButton,true);
 
 ## Authors
 
-* Wan Clem
+** Wan Clem
 
 ## License
 
