@@ -14,8 +14,7 @@ Add the following dependencies to your project
 
 ```
 allprojects {
-	repositories 
-	{
+	repositories {
 	   maven { url 'https://jitpack.io' }
 	}
 }
@@ -25,7 +24,7 @@ And add the below to your app's build.gradle file
 
 ```
 dependencies {
-	     compile 'com.github.wanclem:exotics:1.1.3'
+     compile 'com.github.wanclem:exotics:1.1.3'
 }
 ```
 
@@ -40,8 +39,10 @@ UiUtils.showSafeToast(getContext(),"Welcome to Exotics");
 UiUtils.toggleViewVisibility(signInButton,true);
 
 
-//Say you are building an app to fetch all the user's photos and videos in a folder structure, You could do that in a single //line of code
-
+/***Say you are building an app to fetch all the user's photos and videos 
+in a folder structure, 
+You could do that in a single line of code
+***/
 
 //Fetch all User Videos on the device
 List<MediaEntry>allUserVideos = MediaUtils.getSortedVideos(getContext);
