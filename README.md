@@ -2,12 +2,6 @@
 
 An Android Development Toolbox containing readily used Android Functionalities
 
-### Prerequisites
-
-```
-A Crashlytics Developer account for Crash Detection.
-```
-
 ### Download
 
 Add the following dependencies to your project level  `build.gradle`  file
